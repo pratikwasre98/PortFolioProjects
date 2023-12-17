@@ -143,7 +143,7 @@ order by 1,2,3
 
 
 
--- Using Partition by location only
+-- Using Partition by location only, here we are using Bigint instead of int because of sum function as int allows certain maximum numbers but apparently bigint allows upto 9 quintillion
 
 select dea.continent,dea.location,dea.date,dea.population,
 vac.new_vaccinations,sum(cast (vac.new_vaccinations as bigint)) over (partition by dea.location)
